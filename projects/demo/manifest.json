@@ -1,0 +1,9 @@
+{
+  "name": "AI-First Slides · Demo",
+  "version": 1,
+  "theme": "editorial-dev",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  }
+}

@@ -1,0 +1,21 @@
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;background:#10151d;font-family:'Noto Sans KR Variable',sans-serif}#viewport{width:100vw;height:100dvh;position:relative;overflow:hidden}#slide{position:absolute;width:1920px;height:1080px;transform-origin:top left;background:#fff;overflow:hidden}.frame{width:100%;height:100%;position:relative;overflow:hidden}.frame.cover,.frame.closing{background:#fff;color:#171717}.cover-inner,.closing-inner{position:absolute;inset:180px 140px 120px;display:flex;flex-direction:column;justify-content:center}.master-header{height:220px;padding:65px 120px 32px;border-bottom:2px solid #dedede}.master-kicker{font-size:25px;font-weight:800;letter-spacing:.14em;color:#555}.master-title{font-size:70px;line-height:1.2;margin:18px 0 0;color:#171717}.master-content{position:absolute;top:252px;bottom:125px;left:120px;right:120px;overflow:hidden}.master-footer{position:absolute;bottom:0;left:120px;right:120px;height:105px;border-top:2px solid #dedede;display:flex;justify-content:space-between;align-items:center;color:#666;font-size:22px}.controls{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:9px;background:rgba(30,30,30,.78);border:1px solid rgba(255,255,255,.2);padding:9px 12px;border-radius:12px;color:#fff;z-index:5}.controls button{border:0;border-radius:6px;background:rgba(255,255,255,.09);color:#fff;font-size:19px;padding:9px 14px;cursor:pointer}.controls button:disabled{opacity:.42;cursor:not-allowed}#counter{min-width:70px;text-align:center;font-size:15px}.controls #pdf{font-size:14px}.frame h1{font-weight:800}.frame .lead{font-size:33px;line-height:1.6}.frame .columns{display:grid;grid-template-columns:1fr 1fr;gap:32px;height:100%}.frame .panel{padding:56px;border:2px solid #ddd;border-radius:22px;background:#f7f7f7}.frame .panel h2{font-size:47px}.frame .panel p{font-size:31px;line-height:1.5;color:#555}.frame table{width:100%;border-collapse:collapse;font-size:30px}.frame th,.frame td{border-bottom:2px solid #ddd;text-align:left;padding:26px}.frame th{background:#f4f4f4}
+/* Neutral presentation controls, deliberately independent of theme. */
+.controls{font-family:system-ui,sans-serif;box-shadow:0 3px 14px #0003}
+
+@media print{@page{size:20in 11.25in;margin:0}html,body{margin:0!important;background:white!important;width:1920px!important;height:auto!important;print-color-adjust:exact!important;-webkit-print-color-adjust:exact!important}.controls,#viewport{display:none!important}#print-sheets{display:block!important}.frame{width:1920px;height:1080px;position:relative;overflow:hidden;break-after:page;page-break-after:always}.frame:last-child{break-after:auto;page-break-after:auto}}
+
+
+
+
+/* Keep navigation visible in fullscreen. */
+html:fullscreen,html:fullscreen body{width:100%;height:100%;margin:0}
+
+/* Uploaded images must not reflow the fixed slide canvas. */
+.frame [data-image-slot]{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;border:3px dashed #a8b5c1;border-radius:18px;background:#edf2f6;color:#657585;cursor:pointer;min-width:0;min-height:0}
+.frame [data-image-slot] img{display:block;width:100%;height:100%;object-fit:var(--image-fit,contain)}
+.frame [data-image-slot]:has(img){border:0;background:transparent}
+.frame [data-image-slot] .slot-label{font-size:25px;font-weight:600;text-align:center}
+
+@media print{[data-image-slot]{cursor:default!important}}
+/* Match browser and print sheet backgrounds. */
+.print-mode #print-sheets .frame.standard{background:#fff}
